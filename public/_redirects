@@ -1,0 +1,6 @@
+# Single Page Application (SPA) redirects
+/*    /index.html   200
+
+# Optional: Custom redirects
+# /old-path    /new-path    301
+# /blog/*      https://old-site.com/blog/:splat    301

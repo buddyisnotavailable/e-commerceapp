@@ -1,0 +1,48 @@
+[build]
+  # Build command to run
+  command = "pnpm run build"
+  
+  # Directory to publish (Vite's default output directory)
+  publish = "dist"
+  
+  # Node.js version to use
+  node_version = "20"
+
+[build.environment]
+  # Environment variables can be set here
+  NODE_ENV = "production"
+
+# Redirects configuration for Single Page Application (SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Edge functions (optional - uncomment if needed)
+# [[edge_functions]]
+#   path = "/api/*"
+#   function = "my-edge-function"
+
+# Headers configuration (complemented by _headers file)
+[[headers]]
+  # Apply security headers to all paths
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Plugin configuration (optional)
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+
+# Context-specific configurations (optional)
+# [context.production.environment]
+#   MY_VAR = "production-value"
+# 
+# [context.deploy-preview.environment]
+#   MY_VAR = "preview-value"
+# 
+# [context.branch-deploy.environment]
+#   MY_VAR = "branch-value"
